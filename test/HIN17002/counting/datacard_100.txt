@@ -1,0 +1,31 @@
+First trial on custom workspace
+imax 2 number of bins
+jmax 1 number of processes minus 1
+kmax * number of nuisance parameters
+-------------------------------------------------------------------------------------------------
+bin            e1l4j2b  mu1l4j2b
+observation    167      155
+-------------------------------------------------------------------------------------------------
+bin            e1l4j2b  e1l4j2b  mu1l4j2b mu1l4j2b
+process        ttbar    bkg      ttbar    bkg
+process        0        1        0        1
+rate           160.5068 15.4496  187.8929 3.910497
+-------------------------------------------------------------------------------------------------
+# MC stats
+dS_stat_e  lnN 1.025    -        -        -
+dS_stat_mu lnN -        -        1.023    -
+dB_stat_e  lnN -        1.38     -        -
+dB_stat_mu lnN -        -        -        1.29
+# known uncertainties
+lumi       lnN 1.05     1.05     1.05     1.05
+eff_e      lnN 1.04     -        -        -
+eff_mu     lnN -        -        1.04     -
+eb         lnN 1.08     -        1.15     -
+jes        lnN 1.023    1.023    1.023    1.023
+acc_e      lnN 1.04     -        -        -
+acc_mu     lnN -        -        1.04     -
+dB_e       lnN   -      1.21     -        -
+dB_mu      lnN   -      -        -        1.08
+# dummy additional uncertainty for bkg
+dummy_e    lnN   -      2.0      -        -
+dummy_mu   lnN   -      -        -        2.0
