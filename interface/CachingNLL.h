@@ -47,6 +47,7 @@ namespace cacheutils {
             // and it will be up to the caller code to fill the room the new item
             std::pair<std::vector<Double_t> *, bool> get(); 
             void clear();
+            inline void setDirectMode(bool mode) { directMode_ = mode; }
         private:
             struct Item {
                 Item(const RooAbsCollection &set)   : checker(set),   good(false) {}
@@ -58,6 +59,7 @@ namespace cacheutils {
             int size_, maxSize_;
             enum { MaxItems_ = 3 };
             Item *items[MaxItems_];
+            bool directMode_;
     };
 // Part one: cache all values of a pdf
 class CachingPdfBase {
@@ -126,6 +128,8 @@ class CachingAddNLL : public RooAbsReal {
         void clearZeroPoint() ;
         void clearConstantZeroPoint() ;
         void updateZeroPoint() { clearZeroPoint(); setZeroPoint(); }
+        void propagateData();
+        void setAnalyticBarlowBeeston(bool flag);
         /// note: setIncludeZeroWeights(true) won't have effect unless you also re-call setData
         virtual void  setIncludeZeroWeights(bool includeZeroWeights) ;
         RooSetProxy & params() { return params_; }
@@ -171,6 +175,7 @@ class CachingSimNLL  : public RooAbsReal {
         void updateZeroPoint() { clearZeroPoint(); setZeroPoint(); }
         static void forceUnoptimizedConstraints() { optimizeContraints_ = false; }
         void setChannelMasks(RooArgList const& args);
+        void setAnalyticBarlowBeeston(bool flag);
         friend class CachingAddNLL;
         // trap this call, since we don't care about propagating it to the sub-components
         virtual void constOptimizeTestStatistic(ConstOpCode opcode, Bool_t doAlsoTrackingOpt=kTRUE) { }
