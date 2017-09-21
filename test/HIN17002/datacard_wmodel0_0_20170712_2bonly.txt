@@ -1,0 +1,40 @@
+Combination of datacard_wmodel0_0_20170712.txt
+imax 2 number of bins
+jmax 2 number of processes minus 1
+kmax 18 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes data_obs      ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170712_data.root w:data_e1l4j2b
+shapes qcd           ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170712.root w:QCD_mjj_e
+shapes ttbar         ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170712.root w:S_mjj_e1l4j2b
+shapes wjets         ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170712.root w:W_mjj_e1l4j2b
+shapes data_obs      ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170712_data.root w:data_mu1l4j2b
+shapes qcd           ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170712.root w:QCD_mjj_mu
+shapes ttbar         ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170712.root w:S_mjj_mu1l4j2b
+shapes wjets         ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170712.root w:W_mjj_mu1l4j2b
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1_e1l4j2b   ch1_mu1l4j2b
+observation  -1.0          -1.0        
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1_e1l4j2b   ch1_e1l4j2b   ch1_e1l4j2b   ch1_mu1l4j2b  ch1_mu1l4j2b  ch1_mu1l4j2b
+process      ttbar         wjets         qcd           ttbar         wjets         qcd         
+process      0             1             2             0             1             2           
+rate         1.0000        1.0000        1.0000        1.0000        1.0000        1.0000      
+----------------------------------------------------------------------------------------------------------------------------------
+acc           param  0 1
+jsf           param  1 0.034
+mpv_wmjj_1l4j2b  param  6.202499e+01 1.240500e+01
+Nqcd_mu1l4j2q  param  3.391380e+02 1.695690e+02
+width_wmjj_1l4j2b  param  2.226404e+01 1.113202e+00
+eff_mu        param  0.915 0.0366
+Nqcd_e1l4j1b1q  param  6.983492e+01 3.491746e+01
+Nqcd_mu1l4j1b1q  param  7.177901e+01 5.299197e+01
+eb            param  0.595 0.0595
+mpv_wmjj_1l4j2q  param  4.816960e+01 9.633920e+00
+mpv_wmjj_1l4j1b1q  param  5.400049e+01 1.080010e+01
+width_wmjj_1l4j1b1q  param  1.957542e+01 9.787708e-01
+lumi          param  174.5 8.725
+eff_e         param  0.623 0.0249
+Nqcd_e1l4j2b  param  5.046567e+00 5.046567e+00
+Nqcd_e1l4j2q  param  8.359271e+02 4.179636e+02
+width_wmjj_1l4j2q  param  1.701015e+01 8.505076e-01
+Nqcd_mu1l4j2b  param  2.680869e+00 2.680869e+00

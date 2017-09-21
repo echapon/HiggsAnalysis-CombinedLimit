@@ -1,0 +1,51 @@
+First trial on custom workspace
+imax 6 number of bins
+jmax 2 number of processes minus 1
+kmax * number of nuisance parameters
+-------------------------------------------------------------------------------------------------
+shapes ttbar     e1l4j2q fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_e1l4j2q
+shapes wjets     e1l4j2q fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_e1l4j2q
+shapes qcd       e1l4j2q fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_e
+shapes data_obs  e1l4j2q fit_finalworkspace_wmodel0_0_20170706_data.root w:data_e1l4j2q
+shapes ttbar     e1l4j1b1q fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_e1l4j1b1q
+shapes wjets     e1l4j1b1q fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_e1l4j1b1q
+shapes qcd       e1l4j1b1q fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_e
+shapes data_obs  e1l4j1b1q fit_finalworkspace_wmodel0_0_20170706_data.root w:data_e1l4j1b1q
+shapes ttbar     e1l4j2b fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_e1l4j2b
+shapes wjets     e1l4j2b fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_e1l4j2b
+shapes qcd       e1l4j2b fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_e
+shapes data_obs  e1l4j2b fit_finalworkspace_wmodel0_0_20170706_data.root w:data_e1l4j2b
+shapes ttbar     mu1l4j2q fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_mu1l4j2q
+shapes wjets     mu1l4j2q fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_mu1l4j2q
+shapes qcd       mu1l4j2q fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_mu
+shapes data_obs  mu1l4j2q fit_finalworkspace_wmodel0_0_20170706_data.root w:data_mu1l4j2q
+shapes ttbar     mu1l4j1b1q fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_mu1l4j1b1q
+shapes wjets     mu1l4j1b1q fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_mu1l4j1b1q
+shapes qcd       mu1l4j1b1q fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_mu
+shapes data_obs  mu1l4j1b1q fit_finalworkspace_wmodel0_0_20170706_data.root w:data_mu1l4j1b1q
+shapes ttbar     mu1l4j2b fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_mu1l4j2b
+shapes wjets     mu1l4j2b fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_mu1l4j2b
+shapes qcd       mu1l4j2b fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_mu
+shapes data_obs  mu1l4j2b fit_finalworkspace_wmodel0_0_20170706_data.root w:data_mu1l4j2b
+-------------------------------------------------------------------------------------------------
+bin            e1l4j2q  e1l4j1b1q   e1l4j2b  mu1l4j2q mu1l4j1b1q  mu1l4j2b
+observation    -1       -1          -1       -1       -1          -1
+-------------------------------------------------------------------------------------------------
+bin         e1l4j2q  e1l4j2q  e1l4j2q  e1l4j1b1q   e1l4j1b1q   e1l4j1b1q   e1l4j2b  e1l4j2b  e1l4j2b  mu1l4j2q  mu1l4j2q  mu1l4j2q  mu1l4j1b1q   mu1l4j1b1q   mu1l4j1b1q   mu1l4j2b  mu1l4j2b  mu1l4j2b  
+process     ttbar    wjets    qcd      ttbar       wjets       qcd         ttbar    wjets    qcd      ttbar    wjets    qcd      ttbar       wjets       qcd         ttbar    wjets    qcd
+process     0        1        2        0           1           2           0        1        2        0        1        2        0           1           2           0        1        2
+rate        1        1        1        1           1           1           1        1        1        1        1        1        1           1           1           1        1        1
+-------------------------------------------------------------------------------------------------
+eb             param 0.595 0.0595
+jsf            param 1     0.034
+acc_e          param 0.056 0.0014
+acc_mu         param 0.060 0.0016
+eff_e          param 0.623 0.0249
+eff_mu         param 0.915 0.0366
+lumi           param 174.5 8.725
+Nqcd_e1l4j2b   param 5.659975 5.659975
+Nqcd_e1l4j2q   param 779.7480 3.898740e+02
+Nqcd_e1l4j1b1q param 7.273594e+01   3.636797e+01
+Nqcd_mu1l4j2b   param 6.782743e-01  6.782743e-01
+Nqcd_mu1l4j2q   param 1.602539e+02  1.175947e+02
+Nqcd_mu1l4j1b1q param 7.686879e+01  5.744223e+01

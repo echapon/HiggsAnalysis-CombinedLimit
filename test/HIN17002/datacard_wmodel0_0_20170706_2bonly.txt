@@ -1,0 +1,35 @@
+Combination of datacard_wmodel0_0_20170706.txt
+imax 2 number of bins
+jmax 2 number of processes minus 1
+kmax 13 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes data_obs      ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170706_data.root w:data_e1l4j2b
+shapes qcd           ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_e
+shapes ttbar         ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_e1l4j2b
+shapes wjets         ch1_e1l4j2b   fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_e1l4j2b
+shapes data_obs      ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170706_data.root w:data_mu1l4j2b
+shapes qcd           ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170706.root w:QCD_mjj_mu
+shapes ttbar         ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170706.root w:S_mjj_mu1l4j2b
+shapes wjets         ch1_mu1l4j2b  fit_finalworkspace_wmodel0_0_20170706.root w:W_mjj_mu1l4j2b
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1_e1l4j2b   ch1_mu1l4j2b
+observation  -1.0          -1.0        
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1_e1l4j2b   ch1_e1l4j2b   ch1_e1l4j2b   ch1_mu1l4j2b  ch1_mu1l4j2b  ch1_mu1l4j2b
+process      ttbar         wjets         qcd           ttbar         wjets         qcd         
+process      0             1             2             0             1             2           
+rate         1.0000        1.0000        1.0000        1.0000        1.0000        1.0000      
+----------------------------------------------------------------------------------------------------------------------------------
+jsf           param  1 0.034
+Nqcd_e1l4j1b1q  param  7.273594e+01 3.636797e+01
+Nqcd_mu1l4j2b  param  6.782743e-01 6.782743e-01
+Nqcd_mu1l4j2q  param  1.602539e+02 1.175947e+02
+eff_mu        param  0.915 0.0366
+acc_e         param  0.056 0.0014
+Nqcd_mu1l4j1b1q  param  7.686879e+01 5.744223e+01
+eb            param  0.595 0.0595
+lumi          param  174.5 8.725
+eff_e         param  0.623 0.0249
+Nqcd_e1l4j2b  param  5.659975 5.659975
+Nqcd_e1l4j2q  param  779.7480 3.898740e+02
+acc_mu        param  0.060 0.0016
