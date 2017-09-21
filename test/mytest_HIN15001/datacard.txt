@@ -1,0 +1,20 @@
+First trial on custom workspace
+imax 1 number of bins
+jmax 3 number of processes minus 1
+kmax * number of nuisance parameters
+-------------------------------------------------------------------------------------------------
+shapes ups1S     cat0 fitresult_pp.root ws:cbcb
+shapes ups2S     cat0 fitresult_pp.root ws:sig2S
+shapes ups3S     cat0 fitresult_pp.root ws:sig3S
+shapes bkg       cat0 fitresult_pp.root ws:bkgPdf
+shapes data_obs  cat0 fitresult_pp.root ws:data
+-------------------------------------------------------------------------------------------------
+bin            cat0
+observation    -1
+-------------------------------------------------------------------------------------------------
+bin         cat0     cat0     cat0     cat0
+process     ups1S    ups2S    ups3S    bkg
+process     -2       -1       0        1
+rate        1         1       1        10000
+-------------------------------------------------------------------------------------------------
+bkg_norm  lnU -      -        -        1000
