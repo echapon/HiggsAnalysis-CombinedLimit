@@ -1,0 +1,17 @@
+First trial on custom workspace
+imax 1
+jmax 2
+kmax *
+-------------------------------------------------------------------------------------------------
+shapes jpsi     cat0 FIT_DATA_Psi2SJpsi_PP_Jpsi_DoubleCrystalBall_Psi2S_DoubleCrystalBall_Bkg_Chebychev1_pt150200_rap016_cent0200.root workspace:pdfMASSTot_Jpsi_PP
+shapes psip     cat0 FIT_DATA_Psi2SJpsi_PP_Jpsi_DoubleCrystalBall_Psi2S_DoubleCrystalBall_Bkg_Chebychev1_pt150200_rap016_cent0200.root workspace:pdfMASSTot_Psi2S_PP
+shapes bkg      cat0 FIT_DATA_Psi2SJpsi_PP_Jpsi_DoubleCrystalBall_Psi2S_DoubleCrystalBall_Bkg_Chebychev1_pt150200_rap016_cent0200.root workspace:pdfMASSTot_Bkg_PP
+-------------------------------------------------------------------------------------------------
+bin            cat0
+observation    -1
+-------------------------------------------------------------------------------------------------
+bin         cat0     cat0     cat0
+process     jpsi     psip     bkg
+process     -1       0        1
+rate        1000     20       100
+-------------------------------------------------------------------------------------------------
