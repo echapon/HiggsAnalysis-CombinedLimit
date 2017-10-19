@@ -49,22 +49,22 @@ float MultiDimFit::maxDeltaNLLForProf_ = 200;
 float MultiDimFit::autoRange_ = -1.0;
 std::string MultiDimFit::fixedPointPOIs_ = "";
 
-  std::string MultiDimFit::saveSpecifiedFuncs_;
-  std::string MultiDimFit::saveSpecifiedIndex_;
-  std::string MultiDimFit::saveSpecifiedNuis_;
- std::vector<std::string>  MultiDimFit::specifiedFuncNames_;
- std::vector<RooAbsReal*> MultiDimFit::specifiedFunc_;
- std::vector<float>        MultiDimFit::specifiedFuncVals_;
- RooArgList                MultiDimFit::specifiedFuncList_;
- std::vector<std::string>  MultiDimFit::specifiedCatNames_;
- std::vector<RooCategory*> MultiDimFit::specifiedCat_;
- std::vector<int>        MultiDimFit::specifiedCatVals_;
- RooArgList                MultiDimFit::specifiedCatList_;
- std::vector<std::string>  MultiDimFit::specifiedNuis_;
- std::vector<RooRealVar *> MultiDimFit::specifiedVars_;
- std::vector<float>        MultiDimFit::specifiedVals_;
- RooArgList                MultiDimFit::specifiedList_;
- bool MultiDimFit::saveInactivePOI_= false;
+std::string MultiDimFit::saveSpecifiedFuncs_;
+std::string MultiDimFit::saveSpecifiedIndex_;
+std::string MultiDimFit::saveSpecifiedNuis_;
+std::vector<std::string>  MultiDimFit::specifiedFuncNames_;
+std::vector<RooAbsReal*> MultiDimFit::specifiedFunc_;
+std::vector<float>        MultiDimFit::specifiedFuncVals_;
+RooArgList                MultiDimFit::specifiedFuncList_;
+std::vector<std::string>  MultiDimFit::specifiedCatNames_;
+std::vector<RooCategory*> MultiDimFit::specifiedCat_;
+std::vector<int>        MultiDimFit::specifiedCatVals_;
+RooArgList                MultiDimFit::specifiedCatList_;
+std::vector<std::string>  MultiDimFit::specifiedNuis_;
+std::vector<RooRealVar *> MultiDimFit::specifiedVars_;
+std::vector<float>        MultiDimFit::specifiedVals_;
+RooArgList                MultiDimFit::specifiedList_;
+bool MultiDimFit::saveInactivePOI_= false;
 
 MultiDimFit::MultiDimFit() :
     FitterAlgoBase("MultiDimFit specific options")
@@ -159,9 +159,16 @@ bool MultiDimFit::runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s, RooS
     const RooCmdArg &constrainCmdArg = withSystematics  ? RooFit::Constrain(*mc_s->GetNuisanceParameters()) : RooCmdArg();
     std::auto_ptr<RooFitResult> res;
     if (verbose <= 3) RooAbsReal::setEvalErrorLoggingMode(RooAbsReal::CountErrors);
+    bool doHesse = (algo_ == Singles || algo_ == Impact) || (saveFitResult_) ;
     if ( !skipInitialFit_){
-        bool doHesse = (algo_ == Singles || algo_ == Impact) || (saveFitResult_) ;
         res.reset(doFit(pdf, data, (doHesse ? poiList_ : RooArgList()), constrainCmdArg, false, 1, true, false));
+        if (!res.get()) {
+            std::cout << "\n " <<std::endl;
+            std::cout << "\n ---------------------------" <<std::endl;
+            std::cout << "\n WARNING: MultiDimFit failed" <<std::endl;
+            std::cout << "\n ---------------------------" <<std::endl;
+            std::cout << "\n " <<std::endl;
+        }
         if (algo_ == Impact && res.get()) {
             // Set the floating parameters back to the best-fit value
             // before we write an entry into the output TTree
@@ -176,7 +183,15 @@ bool MultiDimFit::runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s, RooS
     if(w->var("r")) {w->var("r")->Print();}
     if ( loadedSnapshot_ || res.get() || keepFailures_) {
         for (int i = 0, n = poi_.size(); i < n; ++i) {
-            poiVals_[i] = poiVars_[i]->getVal();
+            if (res.get() && doHesse){
+                RooAbsArg *rfloat = (*res).floatParsFinal().find(poi_[i].c_str());
+                if (!rfloat) {
+                    rfloat = (*res).constPars().find(poi_[i].c_str());
+                }
+                RooRealVar *rf = dynamic_cast<RooRealVar*>(rfloat);
+                poiVals_[i] = rf->getVal();//for Singles we store the RooFitResults values
+            }
+            else poiVals_[i] = poiVars_[i]->getVal();
         }
         //if (algo_ != None) {
 	for(unsigned int j=0; j<specifiedNuis_.size(); j++){
