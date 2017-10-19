@@ -25,5 +25,7 @@ fi
 text2workspace.py -m 125 -P HiggsAnalysis.CombinedLimit.HIN17002:TTbarModel_${model} datacard_${modelfull}.txt -o combine_workspace_${modelfull}_norateparams.root -v 99
 # run the fit
 combine --plots -M MaxLikelihoodFit combine_workspace_${modelfull}_norateparams.root --preFitValue 50 --redefineSignalPOI xsec -m 125 --X-rtd ADDNLL_CBNLL=0 --robustFit 1 --saveWorkspace --minimizerStrategy 2 --saveShapes
-# compute the significance
+# compute the expected significance
+combine -n SignifObs -M ProfileLikelihood --signif -t -1 --setPhysicsModelParameters xsec=59 --toysFreq -m 125 combine_workspace_${modelfull}_norateparams.root --pvalue --X-rtd ADDNLL_CBNLL=0
+# compute the observed significance
 combine -n SignifObs -M ProfileLikelihood --signif -m 125 combine_workspace_${modelfull}_norateparams.root --pvalue --X-rtd ADDNLL_CBNLL=0 
