@@ -46,7 +46,7 @@
 	<class name="RooCPSHighMassVBF" />
 	<class name="RooCPSHighMassVBFNoInterf" />
 	<class name="RooChebyshevPDF" />
-	<class name="RooDoubleCB" />
+	<class name="RooDoubleCB2" />
 	<class name="RooDoubleCrystalBall" />
 	<class name="RooErfExpPdf" />
 	<class name="RooErfPdf" />

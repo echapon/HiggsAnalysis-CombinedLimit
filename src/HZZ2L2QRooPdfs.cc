@@ -2,7 +2,7 @@
 #include <math.h>
 #include "TMath.h"
 
-//#include "HiggsAnalysis/CombinedLimit/interface/RooDoubleCB.h"
+//#include "HiggsAnalysis/CombinedLimit/interface/RooDoubleCB2.h"
 //#include "HiggsAnalysis/CombinedLimit/interface/RooFermi.h"
 //#include "HiggsAnalysis/CombinedLimit/interface/RooRelBW.h"
 #include "HiggsAnalysis/CombinedLimit/interface/HZZ2L2QRooPdfs.h"
@@ -66,11 +66,11 @@ double RooCB::evaluate() const
 }
 
 
- ClassImp(RooDoubleCB) 
+ ClassImp(RooDoubleCB2) 
 
- RooDoubleCB::RooDoubleCB(){}
+ RooDoubleCB2::RooDoubleCB2(){}
 
- RooDoubleCB::RooDoubleCB(const char *name, const char *title, 
+ RooDoubleCB2::RooDoubleCB2(const char *name, const char *title, 
 		    RooAbsReal& _x,
 		    RooAbsReal& _mean,
 		    RooAbsReal& _width,
@@ -91,7 +91,7 @@ double RooCB::evaluate() const
  } 
 
 
- RooDoubleCB::RooDoubleCB(const RooDoubleCB& other, const char* name) :  
+ RooDoubleCB2::RooDoubleCB2(const RooDoubleCB2& other, const char* name) :  
    RooAbsPdf(other,name), 
    x("x",this,other.x),
    mean("mean",this,other.mean),
@@ -104,7 +104,7 @@ double RooCB::evaluate() const
  { 
  } 
 
- double RooDoubleCB::evaluate() const 
+ double RooDoubleCB2::evaluate() const 
  { 
    double t = (x-mean)/width;
    if(t>-alpha1 && t<alpha2){
@@ -124,13 +124,13 @@ double RooCB::evaluate() const
    
  } 
 
- Int_t RooDoubleCB::getAnalyticalIntegral(RooArgSet& allVars, RooArgSet& analVars, const char* range) const 
+ Int_t RooDoubleCB2::getAnalyticalIntegral(RooArgSet& allVars, RooArgSet& analVars, const char* range) const 
  {
    if (matchArgs(allVars,analVars,x)) return 1;
    return 0;
  }
 
- Double_t RooDoubleCB::analyticalIntegral(Int_t code, const char* rangeName) const 
+ Double_t RooDoubleCB2::analyticalIntegral(Int_t code, const char* rangeName) const 
  {
    assert(code==1) ;
  

@@ -1,0 +1,20 @@
+significance of the double peak
+imax 1 number of bins
+jmax 2 number of processes minus 1
+kmax * number of nuisance parameters
+--------------------------------------------------------------------
+shapes chib1        cat0          ws_2peak_with_norm.root   ws:chib1
+shapes chib2        cat0          ws_2peak_with_norm.root   ws:chib2
+shapes background   cat0          ws_2peak_with_norm.root   ws:background
+shapes data_obs     cat0          ws_2peak_with_norm.root   ws:chibds
+--------------------------------------------------------------------
+bin         cat0
+observation -1
+--------------------------------------------------------------------
+bin         cat0     cat0     cat0
+process     chib1    chib2    background
+process     -1       0        1
+rate        1        1        1320
+--------------------------------------------------------------------
+background_norm   lnU   -  -  -  1000
+
