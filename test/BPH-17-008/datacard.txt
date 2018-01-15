@@ -3,10 +3,10 @@ imax 1 number of bins
 jmax 2 number of processes minus 1
 kmax * number of nuisance parameters
 --------------------------------------------------------------------
-shapes chib2        cat0          ws_2peak_with_norm_cstDm_1p0e-2.root   ws:chib2
-shapes chib1        cat0          ws_2peak_with_norm_cstDm_1p0e-2.root   ws:chib1
-shapes background   cat0          ws_2peak_with_norm_cstDm_1p0e-2.root   ws:background
-shapes data_obs     cat0          ws_2peak_with_norm_cstDm_1p0e-2.root   ws:chibds
+shapes chib2        cat0          ws_2peak_with_norm.root   ws:chib2
+shapes chib1        cat0          ws_2peak_with_norm.root   ws:chib1
+shapes background   cat0          ws_2peak_with_norm.root   ws:background
+shapes data_obs     cat0          ws_2peak_with_norm.root   ws:chibds
 --------------------------------------------------------------------
 bin         cat0
 observation -1
