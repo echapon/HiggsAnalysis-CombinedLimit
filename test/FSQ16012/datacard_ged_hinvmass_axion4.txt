@@ -15,11 +15,11 @@ observation 14
 # then we list the independent sources of uncertainties, and give their effect (syst. error)
 # on each process and bin
 bin            bin1   bin1  bin1 bin1
-process        axion1  lbyl  cep  qed
+process        axion4  lbyl  cep  qed
 process        0      1     2    3
-rate           0.918 10.456146 2.55939 1.03013
+rate           1.11665 10.456146 2.55939 1.03013
 ------------
-sig_syst     lnN  1.02    -   -   -    axion eff syst
+sig_syst     lnN  1.06    -   -   -    axion eff syst
 eff_syst     lnN  1.28  1.28  -   -    exp systs: efficiency, purity...
 TH_signal    lnN   -    1.10  -   -    TH xsec
 # TH_qed_mc  lnN   -    -     -  1.21  QED MC stats: 21%
