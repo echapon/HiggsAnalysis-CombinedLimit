@@ -15,7 +15,7 @@ observation 14
 bin             bin1     bin1   bin1
 process         LbyL     CEP    QED
 process           0      1      2
-rate             12.86   2.56   1.03
+rate             10.82   2.56   1.03
 ------------
 sig_syst     lnN    1.28  -   -    exp systs: efficiency, purity...
 TH_signal    lnN    1.10  -   -    TH xsec
