@@ -68,3 +68,12 @@ for type in ged; do
       combine -n Obs -M FitDiagnostics datacard_${type}_${varname}.root --plots --saveNormalizations --saveShapes --saveWithUncertainties
    done
 done
+
+# #toys
+# combineTool.py -M HybridNew datacard_ged_hacoplanarity.txt --LHCmode LHC-significance  --saveToys --fullBToys --saveHybridResult -T 10000 -s 1:1000:1 --job-mode lxbatch --task-name acoplanarity_observed --sub-opts='-q 1nd' --expectSignal 1
+# # below does not work
+# # hadd all output ROOT files...
+# combine -M HybridNew datacard_ged_hacoplanarity.txt --LHCmode LHC-significance --readHybridResult --toysFile=testtoys.root
+# # below works
+# use hadd_hypotestresult.C
+# HypoTestResult::Significance()

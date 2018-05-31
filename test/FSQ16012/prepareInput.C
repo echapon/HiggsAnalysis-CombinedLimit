@@ -8,11 +8,41 @@ void prepareInput(const char* filename, const char* varname) {
    TH1D *hlbyl = (TH1D*) fin->Get(Form("%s_lbyl",varname))->Clone("lbyl");
    TH1D *hcep = (TH1D*) fin->Get(Form("%s_cep",varname))->Clone("cep");
    TH1D *hqed = (TH1D*) fin->Get(Form("%s_qed",varname))->Clone("qed");
-   double factor = 370.884/391.; // correct the lumi
-   double factorx = 1.12/1.09; // 138./123.; // correct the xsec // but now the correct xsec is used already, but need to account for trigger SF
+   double factor = 363.959/391;//370.884/391.; // correct the lumi
+   double factorx = pow(1.05*0.987,2)*1.12/1.09; // 138./123.; // correct the xsec // but now the correct xsec is used already, but need to account for trigger SF and reco-ID SF for photons
    hlbyl->Scale(factor*factorx);
    hcep->Scale(factor);
    hqed->Scale(factor);
+
+   // special case of mass (for axion searches): include overflow as an actual mass bin, form 20 to 200 GeV
+   if (TString(varname)=="hinvmass") {
+      const int nbins = 7;
+      double massbins[8] = {5,7.5,10,12.5,15,17.5,20,200};
+
+      TH1D *hdata_orig = hdata;
+      hdata_orig->SetName("hdata_orig");
+      hdata = new TH1D("data_obs","",nbins,massbins);
+      TH1D *hlbyl_orig = hlbyl;
+      hlbyl_orig->SetName("hlbyl_orig");
+      hlbyl = new TH1D("lbyl","",nbins,massbins);
+      TH1D *hcep_orig = hcep;
+      hcep_orig->SetName("hcep_orig");
+      hcep = new TH1D("cep","",nbins,massbins);
+      TH1D *hqed_orig = hqed;
+      hqed_orig->SetName("hqed_orig");
+      hqed = new TH1D("qed","",nbins,massbins);
+      for (int i=0; i<=nbins; i++) {
+         hdata->SetBinContent(i,hdata_orig->GetBinContent(i));
+         hdata->SetBinError(i,hdata_orig->GetBinError(i));
+         hlbyl->SetBinContent(i,hlbyl_orig->GetBinContent(i));
+         hlbyl->SetBinError(i,hlbyl_orig->GetBinError(i));
+         hcep->SetBinContent(i,hcep_orig->GetBinContent(i));
+         hcep->SetBinError(i,hcep_orig->GetBinError(i));
+         hqed->SetBinContent(i,hqed_orig->GetBinContent(i));
+         hqed->SetBinError(i,hqed_orig->GetBinError(i));
+      }
+   }
+
    TFile *fout = new TFile(Form("input_%s.root",varname),"RECREATE");
    hdata->Write();
    hlbyl->Write();

@@ -15,9 +15,9 @@ observation 14
 # then we list the independent sources of uncertainties, and give their effect (syst. error)
 # on each process and bin
 bin            bin1   bin1  bin1 bin1
-process        axion1  lbyl  cep  qed
+process        axion5  lbyl  cep  qed
 process        0      1     2    3
-rate           1.07212 11.4048 2.5116 1.01089
+rate           1.63751 11.4048 2.5116 1.01089
 ------------
 sig_syst     lnN  1.03    -   -   -    axion eff syst
 eff_syst     lnN  1.28  1.28  -   -    exp systs: efficiency, purity...
