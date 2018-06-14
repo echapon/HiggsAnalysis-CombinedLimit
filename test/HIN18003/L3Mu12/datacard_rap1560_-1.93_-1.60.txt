@@ -1,0 +1,17 @@
+imax 1
+jmax 7
+kmax *
+---------------
+shapes * * histos_L3Mu12_extended.root rap1560/-1.93_-1.60/$PROCESS rap1560/-1.93_-1.60/$PROCESS_$SYSTEMATIC
+bin rap1560_-1.93_-1.60
+observation 252
+------------------------------
+bin	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60	rap1560_-1.93_-1.60
+process	DYMuMu	DYTauTau	TT	WW	WZ	ZZ	DataSS1	DataSS2
+process	0	1	2	3	4	5	6	7
+rate	111.912	0	0.151181	0.17471	0.0127243	0.0195741	31	36
+------------------------------
+nDataSS1 rateParam rap1560_-1.93_-1.60 DataSS1 @0*@1/31 nDataSS,fracDataSS1
+nDataSS2 rateParam rap1560_-1.93_-1.60 DataSS2 @0*(1-@1)/36 nDataSS,fracDataSS1
+nDataSS extArg 67 [0,6700]
+fracDataSS1 extArg 0.5 [0,1] 

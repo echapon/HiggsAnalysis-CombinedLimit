@@ -1,0 +1,17 @@
+imax 1
+jmax 7
+kmax *
+---------------
+shapes * * histos_L3Mu12_extended.root mass/15.00_20.00/$PROCESS mass/15.00_20.00/$PROCESS_$SYSTEMATIC
+bin mass_15.00_20.00
+observation 592
+------------------------------
+bin	mass_15.00_20.00	mass_15.00_20.00	mass_15.00_20.00	mass_15.00_20.00	mass_15.00_20.00	mass_15.00_20.00	mass_15.00_20.00	mass_15.00_20.00
+process	DYMuMu	DYTauTau	TT	WW	WZ	ZZ	DataSS1	DataSS2
+process	0	1	2	3	4	5	6	7
+rate	141.133	0	1.99063	0.586248	0.0529109	0.11534	85	83
+------------------------------
+nDataSS1 rateParam mass_15.00_20.00 DataSS1 @0*@1/85 nDataSS,fracDataSS1
+nDataSS2 rateParam mass_15.00_20.00 DataSS2 @0*(1-@1)/83 nDataSS,fracDataSS1
+nDataSS extArg 168 [0,16800]
+fracDataSS1 extArg 0.5 [0,1] 

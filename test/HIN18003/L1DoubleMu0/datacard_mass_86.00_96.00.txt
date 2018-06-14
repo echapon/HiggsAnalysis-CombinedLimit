@@ -1,0 +1,17 @@
+imax 1
+jmax 7
+kmax *
+---------------
+shapes * * histos_L1DoubleMu0_extended.root mass/86.00_96.00/$PROCESS mass/86.00_96.00/$PROCESS_$SYSTEMATIC
+bin mass_86.00_96.00
+observation 15132
+------------------------------
+bin	mass_86.00_96.00	mass_86.00_96.00	mass_86.00_96.00	mass_86.00_96.00	mass_86.00_96.00	mass_86.00_96.00	mass_86.00_96.00	mass_86.00_96.00
+process	DYMuMu	DYTauTau	TT	WW	WZ	ZZ	DataSS1	DataSS2
+process	0	1	2	3	4	5	6	7
+rate	12694.5	0	3.44264	1.12882	13.7936	8.11934	117	116
+------------------------------
+nDataSS1 rateParam mass_86.00_96.00 DataSS1 @0*@1/117 nDataSS,fracDataSS1
+nDataSS2 rateParam mass_86.00_96.00 DataSS2 @0*(1-@1)/116 nDataSS,fracDataSS1
+nDataSS extArg 233 [0,23300]
+fracDataSS1 extArg 0.5 [0,1] 

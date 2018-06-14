@@ -1,0 +1,17 @@
+imax 1
+jmax 7
+kmax *
+---------------
+shapes * * histos_L1DoubleMu0_extended.root pt/45.00_50.00/$PROCESS pt/45.00_50.00/$PROCESS_$SYSTEMATIC
+bin pt_45.00_50.00
+observation 415
+------------------------------
+bin	pt_45.00_50.00	pt_45.00_50.00	pt_45.00_50.00	pt_45.00_50.00	pt_45.00_50.00	pt_45.00_50.00	pt_45.00_50.00	pt_45.00_50.00
+process	DYMuMu	DYTauTau	TT	WW	WZ	ZZ	DataSS1	DataSS2
+process	0	1	2	3	4	5	6	7
+rate	323.361	0	1.64538	0.4783	1.35803	0.656549	17	19
+------------------------------
+nDataSS1 rateParam pt_45.00_50.00 DataSS1 @0*@1/17 nDataSS,fracDataSS1
+nDataSS2 rateParam pt_45.00_50.00 DataSS2 @0*(1-@1)/19 nDataSS,fracDataSS1
+nDataSS extArg 36 [0,3600]
+fracDataSS1 extArg 0.5 [0,1] 

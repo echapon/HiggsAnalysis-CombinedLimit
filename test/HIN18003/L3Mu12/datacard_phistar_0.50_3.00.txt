@@ -1,0 +1,17 @@
+imax 1
+jmax 7
+kmax *
+---------------
+shapes * * histos_L3Mu12_extended.root phistar/0.50_3.00/$PROCESS phistar/0.50_3.00/$PROCESS_$SYSTEMATIC
+bin phistar_0.50_3.00
+observation 1280
+------------------------------
+bin	phistar_0.50_3.00	phistar_0.50_3.00	phistar_0.50_3.00	phistar_0.50_3.00	phistar_0.50_3.00	phistar_0.50_3.00	phistar_0.50_3.00	phistar_0.50_3.00
+process	DYMuMu	DYTauTau	TT	WW	WZ	ZZ	DataSS1	DataSS2
+process	0	1	2	3	4	5	6	7
+rate	1125.68	0	9.21822	2.49045	6.86866	3.78489	21	30
+------------------------------
+nDataSS1 rateParam phistar_0.50_3.00 DataSS1 @0*@1/21 nDataSS,fracDataSS1
+nDataSS2 rateParam phistar_0.50_3.00 DataSS2 @0*(1-@1)/30 nDataSS,fracDataSS1
+nDataSS extArg 51 [0,5100]
+fracDataSS1 extArg 0.5 [0,1] 

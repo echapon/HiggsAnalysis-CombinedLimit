@@ -1,0 +1,17 @@
+imax 1
+jmax 7
+kmax *
+---------------
+shapes * * histos_L1DoubleMu0_extended.root rap1560/0.00_0.40/$PROCESS rap1560/0.00_0.40/$PROCESS_$SYSTEMATIC
+bin rap1560_0.00_0.40
+observation 14127
+------------------------------
+bin	rap1560_0.00_0.40	rap1560_0.00_0.40	rap1560_0.00_0.40	rap1560_0.00_0.40	rap1560_0.00_0.40	rap1560_0.00_0.40	rap1560_0.00_0.40	rap1560_0.00_0.40
+process	DYMuMu	DYTauTau	TT	WW	WZ	ZZ	DataSS1	DataSS2
+process	0	1	2	3	4	5	6	7
+rate	777.67	0.604335	2.8256	0.588816	0.0951442	0.106723	3942	3899
+------------------------------
+nDataSS1 rateParam rap1560_0.00_0.40 DataSS1 @0*@1/3942 nDataSS,fracDataSS1
+nDataSS2 rateParam rap1560_0.00_0.40 DataSS2 @0*(1-@1)/3899 nDataSS,fracDataSS1
+nDataSS extArg 7841 [0,784100]
+fracDataSS1 extArg 0.5 [0,1] 
