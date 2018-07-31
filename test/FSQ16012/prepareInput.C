@@ -5,9 +5,16 @@ void prepareInput(const char* filename, const char* varname) {
    TFile *fin = TFile::Open(filename);
 
    TH1D *hdata = (TH1D*) fin->Get(Form("%s_data",varname))->Clone("data_obs");
-   TH1D *hlbyl = (TH1D*) fin->Get(Form("%s_lbyl",varname))->Clone("lbyl");
-   TH1D *hcep = (TH1D*) fin->Get(Form("%s_cep",varname))->Clone("cep");
-   TH1D *hqed = (TH1D*) fin->Get(Form("%s_qed",varname))->Clone("qed");
+   TH1D *hlbyl;
+   if (fin->Get(Form("%s_lbyl",varname))) hlbyl = (TH1D*) fin->Get(Form("%s_lbyl",varname))->Clone("lbyl");
+   else hlbyl = (TH1D*) fin->Get(Form("%s_lbyl_stack_3",varname))->Clone("lbyl");
+   TH1D *hqed;
+   if (fin->Get(Form("%s_qed",varname))) hqed = (TH1D*) fin->Get(Form("%s_qed",varname))->Clone("qed");
+   else hqed = (TH1D*) fin->Get(Form("%s_qed_stack_1",varname))->Clone("qed");
+   TH1D *hcep;
+   if (fin->Get(Form("%s_cep",varname))) hcep = (TH1D*) fin->Get(Form("%s_cep",varname))->Clone("cep");
+   else hcep = (TH1D*) fin->Get(Form("%s_cep_stack_2",varname))->Clone("cep");
+   
    double factor = 363.959/391;//370.884/391.; // correct the lumi
    double factorx = pow(1.05*0.987,2)*1.12/1.09; // 138./123.; // correct the xsec // but now the correct xsec is used already, but need to account for trigger SF and reco-ID SF for photons
    hlbyl->Scale(factor*factorx);
@@ -35,11 +42,14 @@ void prepareInput(const char* filename, const char* varname) {
          hdata->SetBinContent(i,hdata_orig->GetBinContent(i));
          hdata->SetBinError(i,hdata_orig->GetBinError(i));
          hlbyl->SetBinContent(i,hlbyl_orig->GetBinContent(i));
-         hlbyl->SetBinError(i,hlbyl_orig->GetBinError(i));
+         // hlbyl->SetBinError(i,hlbyl_orig->GetBinError(i));
+         hlbyl->SetBinError(i,1e-10);
          hcep->SetBinContent(i,hcep_orig->GetBinContent(i));
-         hcep->SetBinError(i,hcep_orig->GetBinError(i));
+         // hcep->SetBinError(i,hcep_orig->GetBinError(i));
+         hcep->SetBinError(i,1e-10);
          hqed->SetBinContent(i,hqed_orig->GetBinContent(i));
-         hqed->SetBinError(i,hqed_orig->GetBinError(i));
+         // hqed->SetBinError(i,hqed_orig->GetBinError(i));
+         hqed->SetBinError(i,1e-10);
       }
    }
 
