@@ -12,10 +12,10 @@ void prepareInputs_axion(int imass) {
    double massbins[8] = {5,7.5,10,12.5,15,17.5,20,200};
 
    // arrays
-   double mass[7] = {6, 9, 11, 14, 16, 30, 90};
-   double acc[7] = {0.763764, 0.830831, 0.873874, 0.895896, 0.916917, 0.967968, 0.996997};
-   double eff[7] = {0.187, 0.327, 0.361, 0.389, 0.412, 0.436, 0.367};
-   double deff[7] = {0.5e-2, 0.7e-2, 0.7e-2, 0.8e-2, 0.8e-2, 0.8e-2, 0.7e-2};
+   double mass[9] = {5, 6, 9, 11, 14, 16, 22, 30, 90};
+   double acc[9] = {0.328, 0.763764, 0.830831, 0.873874, 0.895896, 0.916917, 0.941, 0.967968, 0.996997};
+   double eff[9] = {0.089, 0.187, 0.327, 0.361, 0.389, 0.412, 0.409, 0.436, 0.367};
+   double deff[9] = {0.5e-2, 0.5e-2, 0.7e-2, 0.7e-2, 0.8e-2, 0.8e-2, 0.7e-2, 0.8e-2, 0.7e-2};
 
    // functions for resolution
    TF1 *fm = new TF1("fm","[0]+[1]*exp([2]*x)",5,20);
@@ -58,9 +58,8 @@ void prepareInputs_axion(int imass) {
    // h->Scale(xsec*lumi*acc[imass]*eff[imass]/nevts);
 
    // get histo from full sim
-   const char* hname[7] = {"hinvmass_sixgev","hinvmass_ninegev","hinvmass_elevengev","hinvmass_fourteengev","hinvmass_sixteengev","hinvmass_thirtygev","hinvmass_ninetygev"};
-   TFile *fax = TFile::Open("histos_alps.root");
-   TH1D *hax = (TH1D*) fax->Get(hname[imass]);
+   TFile *fax = TFile::Open("histos_alps_two_new_points.root");
+   TH1D *hax = (TH1D*) fax->Get(Form("hinvmass%d",imass));
    // for (int ibin=1; ibin<7; ibin++) {
    //    h->SetBinContent(ibin,hax->GetBinContent(ibin+2));
    //    h->SetBinError(ibin,hax->GetBinContent(ibin+2));
@@ -83,5 +82,5 @@ void prepareInputs_axion(int imass) {
 }
 
 void prepareInputs_axion() {
-   for (int i=0; i<7; i++) prepareInputs_axion(i);
+   for (int i=0; i<9; i++) prepareInputs_axion(i);
 }
