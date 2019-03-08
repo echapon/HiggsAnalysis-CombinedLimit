@@ -42,14 +42,14 @@ void prepareInput(const char* filename, const char* varname) {
          hdata->SetBinContent(i,hdata_orig->GetBinContent(i));
          hdata->SetBinError(i,hdata_orig->GetBinError(i));
          hlbyl->SetBinContent(i,hlbyl_orig->GetBinContent(i));
-         // hlbyl->SetBinError(i,hlbyl_orig->GetBinError(i));
-         hlbyl->SetBinError(i,1e-10);
+         hlbyl->SetBinError(i,hlbyl_orig->GetBinError(i));
+         // hlbyl->SetBinError(i,1e-10);
          hcep->SetBinContent(i,hcep_orig->GetBinContent(i));
-         // hcep->SetBinError(i,hcep_orig->GetBinError(i));
-         hcep->SetBinError(i,1e-10);
+         hcep->SetBinError(i,hcep_orig->GetBinError(i));
+         // hcep->SetBinError(i,1e-10);
          hqed->SetBinContent(i,hqed_orig->GetBinContent(i));
-         // hqed->SetBinError(i,hqed_orig->GetBinError(i));
-         hqed->SetBinError(i,1e-10);
+         hqed->SetBinError(i,hqed_orig->GetBinError(i));
+         // hqed->SetBinError(i,1e-10);
       }
    }
 
